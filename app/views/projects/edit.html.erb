@@ -1,9 +1,11 @@
 <h1>Editing Project</h1>
 
+
 <%= render 'form', project: @project %>
 
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+<td><%= link_to "<button>Show</button>".html_safe, @project, method: :delete, data: { confirm: 'Are you sure?' }, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
+<td><%= link_to "<button>Back</button>".html_safe, projects_path, method: :delete, data: { confirm: 'Are you sure?' }, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
+
 
 <style>
   h1 {

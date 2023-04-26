@@ -14,6 +14,8 @@
 
 <h1>Recipe Finder</h1>
 
+<div class="card">
+
 <table>
   <thead>
     <tr>
@@ -23,19 +25,27 @@
     </tr>
   </thead>
 
+
   <tbody>
+
     <% @projects.each do |project| %>
       <tr>
+
+        
         <td><%= project.title %></td>
         <td><%= project.description %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "<button>Show</button>".html_safe, project, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
+        <td><%= link_to "<button>Edit</button>".html_safe, edit_project_path(project), :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
+        <td><%= link_to "<button>Destroy</button>".html_safe, project, method: :delete, data: { confirm: 'Are you sure?' }, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
+        
       </tr>
     <% end %>
-  </tbody>
+
+</tbody>
+
 </table>
 
 <br>
+<td><%= link_to "<button>New Project</button>".html_safe, new_project_path, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
 
-<%= link_to 'New Project', new_project_path %>
+</div>

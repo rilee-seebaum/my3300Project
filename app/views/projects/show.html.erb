@@ -10,8 +10,9 @@
   <%= @project.description %>
 </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<td><%= link_to "<button>Edit</button>".html_safe, edit_project_path(@project), :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
+<td><%= link_to "<button>Back</button>".html_safe, projects_path, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
+
 
 <style>
   h1 {
@@ -21,3 +22,4 @@
   body {
   background-color: lightpink;
 }
+
