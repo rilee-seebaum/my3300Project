@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<% if user_signed_in? %>
+
+
 
 <style>
   h1 {
@@ -49,3 +52,5 @@
 <td><%= link_to "<button>New Project</button>".html_safe, new_project_path, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
 
 </div>
+
+<% end %>
