@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h1>
+  <strong></strong>
   <%= @project.title %>
-</p>
+</h1>
 
 <p>
   <strong>Description:</strong>
@@ -19,6 +19,26 @@
   <strong>Date:</strong>
   <%= @project.date %>
 </p>
+
+<!DOCTYPE html>
+<html>
+<head>
+<!-- HTML Codes by Quackit.com -->
+<title>
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {background-color:#e3e3e3;background-repeat:no-repeat;background-position:top left;background-attachment:fixed;}
+h1{text-align:center;font-family:Cursive;font-size:55px; color:#f995c5;background-color:#e3e3e3;}
+
+p{font-size:13px;}
+
+
+</style>
+</head>
+
+<body>
+</html>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
