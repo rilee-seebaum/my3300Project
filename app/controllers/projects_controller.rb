@@ -12,25 +12,47 @@ class ProjectsController < ApplicationController
   end
 
   # GET /projects/new
-  def new
-    @project = Project.new
+  describe "GET /new" do
+    it "renders a successful response" do
+      get new_article_url
+      expect(response).to be_successful
+    end
   end
 
   # GET /projects/1/edit
-  def edit
+  describe "GET /edit" do
+    it "render a successful response" do
+      article = Article.create! valid_attributes
+      get edit_article_url(article)
+      expect(response).to be_successful
+    end
   end
 
   # POST /projects or /projects.json
-  def create
-    @project = Project.new(project_params)
+  describe "POST /create" do
+    context "with valid parameters" do
+      it "creates a new Article" do
+        expect {
+          post articles_url, params: { article: valid_attributes }
+        }.to change(Article, :count).by(1)
+      end
 
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to project_url(@project), notice: "Project was successfully created." }
-        format.json { render :show, status: :created, location: @project }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+      it "redirects to the created article" do
+        post articles_url, params: { article: valid_attributes }
+        expect(response).to redirect_to(article_url(Article.last))
+      end
+    end
+
+    context "with invalid parameters" do
+      it "does not create a new Article" do
+        expect {
+          post articles_url, params: { article: invalid_attributes }
+        }.to change(Article, :count).by(0)
+      end
+
+      it "renders a successful response (i.e. to display the 'new' template)" do
+        post articles_url, params: { article: invalid_attributes }
+        expect(response).to be_successful
       end
     end
   end
